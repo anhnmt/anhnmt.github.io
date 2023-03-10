@@ -1,30 +1,24 @@
 const siteMetadata = {
   title: 'AnhNMT Blog 🚀',
   author: 'AnhNMT',
-  headerTitle: 'VNTechies Dev Blog',
-  description:
-    'VNTechies Dev Blog - Kho tài nguyên dành cho người Việt yêu công nghệ. Tài liệu, hướng dẫn DevOps, Cloud computing, Infrastructure Automation, CI/CD',
+  headerTitle: 'AnhNMT Blog',
+  description: 'AnhNMT Blog - Nơi tổng hợp các bài viết về công nghệ, lập trình 🚀',
   descriptions: {
     blog: 'Các bài viết kỹ thuật tập trung vào các 🚀 giải pháp công nghệ ☁️ Cloud computing, DevOps, phát triển 🌐 web & 📱 mobile apps, CI/CD',
     courses:
       '📝 Tài liệu, khoá học, hướng dẫn tự học các cộng nghệ liên quan tới ☁️ cloud computing, DevOps, AWS, Azure, Docker, Kubernetes, CDK, CI/CD ',
   },
   language: 'vi-VN',
-  theme: 'system', // system, dark or light
+  theme: 'dark', // system, dark or light
   siteUrl: 'https://anhnmt.dev',
   siteRepo: 'https://github.com/anhnmt/anhnmt.github.io',
   siteLogo: '/static/images/logo.png',
   image: '/static/images/avatar.png',
   socialBanner: '/static/images/default-ogp.png',
-  email: 'info@vntechies.dev',
+  email: 'hi@anhnmt.dev',
   github: 'https://github.com/anhnmt',
-  twitter: 'https://twitter.com/vn_techies',
-  instagram: 'https://www.instagram.com/vn_techies/',
-  facebook: 'https://facebook.com/vntechies',
-  youtube: 'https://www.youtube.com/@vntechies',
-  linkedin: 'https://linkedin.com/in/anhnmt',
-  messenger: 'https://m.me/vntechies',
-  discord: 'https://discord.com/invite/YecagKUqpS',
+  twitter: 'https://twitter.com/xdorro',
+  facebook: 'https://facebook.com/xdorro',
   locale: 'vi-VN',
   analytics: {
     // If you want to use an analytics provider you have to add it to the

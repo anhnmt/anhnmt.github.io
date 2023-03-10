@@ -12,7 +12,7 @@ const Hero = () => {
           </h2>
           <p className="md:text-lg mb-6 max-w-2xl font-light text-gray-500 dark:text-gray-400 lg:mb-8 lg:text-xl">
             {`Chào mừng tới AnhNMT Blog 👨‍💻👩‍💻`} <br />
-            {`Nơi tổng hợp các bài viết về công nghệ, lập trình 🚀 `}
+            {`Nơi tổng hợp các bài viết về công nghệ, lập trình 🚀`}
           </p>
           <div className="flex flex-col items-start space-y-3 sm:flex-row sm:items-center sm:space-x-4 sm:space-y-0">
             <Link
@@ -59,8 +59,8 @@ const Hero = () => {
           <Image
             loader={imageLoader}
             priority
-            height="400px"
-            width="400px"
+            height="300px"
+            width="300px"
             objectFit="contain"
             src="/static/images/cloud.png"
             alt="cloud"

@@ -1,5 +1,3 @@
-import siteMetadata from './siteMetadata'
-
 export const headerNavLinks = [
   { href: '/blog', title: 'Blog' },
   { href: '/courses', title: 'Khoá học' },
@@ -7,9 +5,6 @@ export const headerNavLinks = [
 ]
 
 export const footerNavLinks = [
-  { href: '/docs/privacy', title: 'Chính sách bảo mật' },
-  { href: '/docs/tos', title: 'Điều khoản sử dụng' },
-  { href: siteMetadata.messenger, title: 'Liên hệ' },
   { href: '/about', title: 'About' },
   { href: '/feed.xml', title: 'RSS Feed' },
 ]
