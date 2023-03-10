@@ -25,7 +25,7 @@ export default function Home({ posts }) {
     <>
       <PageSEO title={siteMetadata.title} description={siteMetadata.description} />
       <Hero />
-      <Features />
+      {/*<Features />*/}
       {/* TODO */}
       {/* <Team /> */}
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
