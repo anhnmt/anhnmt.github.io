@@ -5,7 +5,6 @@ import { formatSlug, getAllFilesFrontMatter, getFileBySlug, getFiles } from '@/l
 import path from 'path'
 import { useRouter } from 'next/router'
 import Share from '@/components/Share'
-import Link from '@/components/Link'
 import Image from '@/components/Image'
 import formatDate from '@/lib/utils/formatDate'
 import { CourseSEO } from '@/components/SEO'
@@ -183,6 +182,7 @@ export default function Course({ post, authorDetails, posts, otherCourses, prev,
             <div className="prose max-w-none pt-10 text-base dark:prose-dark">
               <div className="mb-8 mt-4">
                 <Image
+                  unoptimized={true}
                   loader={imageLoader}
                   alt={'title'}
                   className="rounded object-cover"

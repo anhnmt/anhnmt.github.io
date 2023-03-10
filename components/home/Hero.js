@@ -57,6 +57,7 @@ const Hero = () => {
         </div>
         <div className="hidden min-h-full lg:col-span-5 lg:mt-0 lg:flex">
           <Image
+            unoptimized={true}
             loader={imageLoader}
             priority
             height="300px"

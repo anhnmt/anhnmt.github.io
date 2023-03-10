@@ -16,6 +16,7 @@ const Card = ({ title, description, imgSrc, href, showMore = true }) => (
     >
       {imgSrc && (
         <Image
+          unoptimized={true}
           loader={imageLoader}
           alt={title}
           src={imgSrc}

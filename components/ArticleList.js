@@ -1,9 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import Image from 'next/image'
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
 import ArticleThumbnail from './ArticleThumbnail'
-import formatDate from '@/lib/utils/formatDate'
 
 const ArticleList = ({ slug, date, title, summary, tags, image }) => {
   return (

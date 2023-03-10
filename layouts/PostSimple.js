@@ -1,4 +1,3 @@
-import Link from '@/components/Link'
 import PageTitle from '@/components/PageTitle'
 import SectionContainer from '@/components/SectionContainer'
 import { BlogSEO } from '@/components/SEO'
@@ -37,6 +36,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
           </header>
           <div className="mb-8 mt-4">
             <Image
+              unoptimized={true}
               loader={imageLoader}
               alt={title}
               className="rounded object-cover"

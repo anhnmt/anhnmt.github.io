@@ -12,6 +12,7 @@ const HorizontalCard = ({ title, href, image }) => {
     >
       <span className="relative h-full w-20 lg:h-24 lg:w-full">
         <Image
+          unoptimized={true}
           loader={imageLoader}
           alt={title}
           className="rounded-tl-md rounded-bl-md object-cover"

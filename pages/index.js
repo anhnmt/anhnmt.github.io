@@ -2,15 +2,8 @@ import Link from '@/components/Link'
 import { PageSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import { getAllFilesFrontMatter } from '@/lib/mdx'
-
-import Article from '@/components/Article'
-import FAQ from '@/components/home/FAQ'
-import AWSCert from '@/components/home/AWSCert'
 import Hero from '@/components/home/Hero'
-import Features from '@/components/home/Features'
-import Newsletter from '@/components/home/NewsLetter'
 import ArticleList from '@/components/ArticleList'
-import FreeCourses from '@/components/home/FreeCourses'
 
 const MAX_DISPLAY = 6
 

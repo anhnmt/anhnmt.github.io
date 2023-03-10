@@ -17,8 +17,9 @@ export default function Header() {
           <div className="flex items-center justify-between">
             <div className="mr-3">
               <Image
+                unoptimized={true}
                 loader={imageLoader}
-                src={'/static/images/logo.webp'}
+                src={'/static/images/logo.png'}
                 width="200px"
                 height="40px"
                 alt="avatar"

@@ -12,8 +12,9 @@ export default function Footer() {
       <div className="sm:flex sm:items-center sm:justify-between">
         <Link alt="Trang chủ" href="/" className="mb-4 flex items-center sm:mb-0">
           <Image
+            unoptimized={true}
             loader={imageLoader}
-            src={'/static/images/logo.webp'}
+            src={'/static/images/logo.png'}
             width="200px"
             height="40px"
             alt="avatar"
@@ -35,6 +36,7 @@ export default function Footer() {
         <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
           <Link alt="Trang chủ" href="/" className="">
             <Image
+              unoptimized={true}
               loader={imageLoader}
               alt="made in Vietnam"
               width="129px"

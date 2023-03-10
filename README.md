@@ -7,8 +7,8 @@
 ---
 
 <p float="left">
-	<a href="https://vntechies.dev">
-		<img src="https://img.shields.io/badge/vntechies.dev-111827?style=for-the-badge&logo=About.me&logoColor=ea580c" />
+	<a href="https://anhnmt.dev">
+		<img src="https://img.shields.io/badge/anhnmt.dev-111827?style=for-the-badge&logo=About.me&logoColor=ea580c" />
 	</a>
 	<a href="https://github.com/anhnmt">
 		<img src="https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white" />
