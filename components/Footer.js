@@ -12,6 +12,7 @@ export default function Footer() {
       <div className="sm:flex sm:items-center sm:justify-between">
         <Link alt="Trang chủ" href="/" className="mb-4 flex items-center sm:mb-0">
           <Image
+            loader={imageLoader}
             src={'/static/images/logo.webp'}
             width="200px"
             height="40px"

@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from '@/components/Link'
+import imageLoader from '@/lib/loader'
 
 const Hero = () => {
   return (
@@ -56,6 +57,7 @@ const Hero = () => {
         </div>
         <div className="hidden min-h-full lg:col-span-5 lg:mt-0 lg:flex">
           <Image
+            loader={imageLoader}
             priority
             height="400px"
             width="400px"

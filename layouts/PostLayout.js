@@ -9,6 +9,7 @@ import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Share from '@/components/Share'
 import HorizontalCard from '@/components/HorizontalCard'
+import imageLoader from '@/lib/loader'
 
 const editUrl = (fileName) => `${siteMetadata.siteRepo}/blob/master/data/blog/${fileName}`
 const discussUrl = (slug) =>
@@ -61,6 +62,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                       <li className="flex items-center space-x-2" key={author.name}>
                         {author.avatar && (
                           <Image
+                            loader={imageLoader}
                             src={author.avatar}
                             width="38px"
                             height="38px"

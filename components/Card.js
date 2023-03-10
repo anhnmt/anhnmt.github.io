@@ -1,5 +1,6 @@
 import Image from './Image'
 import Link from './Link'
+import imageLoader from '@/lib/loader'
 
 const Card = ({ title, description, imgSrc, href, showMore = true }) => (
   <Link
@@ -15,6 +16,7 @@ const Card = ({ title, description, imgSrc, href, showMore = true }) => (
     >
       {imgSrc && (
         <Image
+          loader={imageLoader}
           alt={title}
           src={imgSrc}
           className="object-cover object-center md:h-36 lg:h-48"

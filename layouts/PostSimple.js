@@ -7,6 +7,7 @@ import Comments from '@/components/comments'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
 import Image from '@/components/Image'
 import HorizontalCard from '@/components/HorizontalCard'
+import imageLoader from '@/lib/loader'
 
 export default function PostLayout({ frontMatter, authorDetails, next, prev, children }) {
   const { date, title, images } = frontMatter
@@ -36,6 +37,7 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
           </header>
           <div className="mb-8 mt-4">
             <Image
+              loader={imageLoader}
               alt={title}
               className="rounded object-cover"
               src={images[0]}

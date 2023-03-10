@@ -11,6 +11,7 @@ import formatDate from '@/lib/utils/formatDate'
 import { CourseSEO } from '@/components/SEO'
 import siteMetadata from '@/data/siteMetadata'
 import HorizontalCard from '@/components/HorizontalCard'
+import imageLoader from '@/lib/loader'
 
 const root = process.cwd()
 
@@ -182,6 +183,7 @@ export default function Course({ post, authorDetails, posts, otherCourses, prev,
             <div className="prose max-w-none pt-10 text-base dark:prose-dark">
               <div className="mb-8 mt-4">
                 <Image
+                  loader={imageLoader}
                   alt={'title'}
                   className="rounded object-cover"
                   src={frontMatter.images[0]}

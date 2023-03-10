@@ -1,5 +1,6 @@
 import Link from '@/components/Link'
 import Image from '@/components/Image'
+import imageLoader from '@/lib/loader'
 
 const HorizontalCard = ({ title, href, image }) => {
   return (
@@ -11,6 +12,7 @@ const HorizontalCard = ({ title, href, image }) => {
     >
       <span className="relative h-full w-20 lg:h-24 lg:w-full">
         <Image
+          loader={imageLoader}
           alt={title}
           className="rounded-tl-md rounded-bl-md object-cover"
           src={image}
