@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /user
+Sitemap: https://anhnmt.dev/sitemap.xml
+Disallow: /*feed.xml$
