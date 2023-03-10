@@ -73,14 +73,14 @@ export default function PostLayout({ frontMatter, authorDetails, next, prev, chi
                         <dl className="whitespace-nowrap text-sm font-medium leading-5">
                           <dt className="sr-only">Name</dt>
                           <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                          <dt className="sr-only">Facebook</dt>
+                          <dt className="sr-only">Github</dt>
                           <dd>
-                            {author.facebook && (
+                            {author.github && (
                               <Link
-                                href={author.facebook}
+                                href={author.github}
                                 className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
                               >
-                                {author.facebook.replace('https://fb.me/', '@')}
+                                {author.github.replace('https://github.com/', '@')}
                               </Link>
                             )}
                           </dd>

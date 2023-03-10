@@ -16,7 +16,7 @@ export default function FourZeroFour() {
           <p className="mb-4 text-xl font-bold leading-normal md:text-2xl">
             Xin lỗi, không tìm thấy trang bạn vừa yêu cầu 😅
           </p>
-          <p className="mb-8">Đừng lo, VNTechies còn nhiều bài viết khác 🤩</p>
+          <p className="mb-8">Đừng lo, blog còn nhiều bài viết khác 🤩</p>
           <p className="text-lg leading-7">
             Quay về{' '}
             <Link

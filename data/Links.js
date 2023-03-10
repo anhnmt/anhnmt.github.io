@@ -5,7 +5,7 @@ export const headerNavLinks = [
 ]
 
 export const footerNavLinks = [
-  { href: '/about', title: 'About' },
+  { href: '/', title: 'Home' },
   { href: '/feed.xml', title: 'RSS Feed' },
 ]
 
