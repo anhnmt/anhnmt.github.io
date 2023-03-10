@@ -75,7 +75,7 @@ const siteMetadata = {
     utterancesConfig: {
       // Visit the link below, and follow the steps in the 'configuration' section
       // https://utteranc.es/
-      repo: process.env.NEXT_PUBLIC_UTTERANCES_REPO,
+      repo: "https://github.com/anhnmt/anhnmt.github.io",
       issueTerm: 'title', // supported options: pathname, url, title
       label: 'Bình luận 💬', // label (optional): Comment 💬
       // theme example: github-light, github-dark, preferred-color-scheme
