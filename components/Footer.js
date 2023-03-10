@@ -18,7 +18,7 @@ export default function Footer() {
             width="200px"
             height="40px"
             alt="avatar"
-            className="h-10 w-10 rounded-full grayscale hover:grayscale-0"
+            className="h-10 w-10 rounded grayscale hover:grayscale-0"
           />
         </Link>
         <ul className="mb-6 flex flex-wrap items-center text-sm text-gray-500 dark:text-gray-400 sm:mb-0">

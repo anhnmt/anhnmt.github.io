@@ -23,7 +23,7 @@ export default function Header() {
                 width="200px"
                 height="40px"
                 alt="avatar"
-                className="h-10 w-10 rounded-full"
+                className="h-20 w-20 rounded"
               />
             </div>
           </div>

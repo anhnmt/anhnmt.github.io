@@ -4,7 +4,7 @@ import imageLoader from '@/lib/loader'
 // eslint-disable-next-line jsx-a11y/alt-text
 const Image = ({ ...rest }) => (
   <p align="center">
-    <NextImage {...rest} loader={imageLoader} />
+    <NextImage {...rest} unoptimized={true} loader={imageLoader} />
   </p>
 )
 
