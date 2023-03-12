@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from '@/components/Link'
-import imageLoader from '@/lib/loader'
 
 const Hero = () => {
   return (
@@ -8,7 +7,7 @@ const Hero = () => {
       <div className="mx-auto grid max-w-screen-xl px-4 py-8 lg:grid-cols-12 lg:gap-8 lg:py-16 xl:gap-0">
         <div className="mr-auto place-self-center lg:col-span-7">
           <h2 className="xl:text-6xl mb-4 max-w-2xl text-4xl font-extrabold leading-none tracking-tight dark:text-white md:text-5xl">
-            Xin chào 👋
+            Hello world, I'm AnhNMT 👋
           </h2>
           <p className="md:text-lg mb-6 max-w-2xl font-light text-gray-500 dark:text-gray-400 lg:mb-8 lg:text-xl">
             {`Chào mừng tới AnhNMT Blog 👨‍💻👩‍💻`} <br />
@@ -55,18 +54,18 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-        <div className="hidden min-h-full lg:col-span-5 lg:mt-0 lg:flex">
-          <Image
-            unoptimized={true}
-            loader={imageLoader}
-            priority
-            height="300px"
-            width="300px"
-            objectFit="contain"
-            src="/static/images/cloud.png"
-            alt="cloud"
-          />
-        </div>
+        {/*<div className="hidden min-h-full lg:col-span-5 lg:mt-0 lg:flex">*/}
+        {/*  <Image*/}
+        {/*    unoptimized={true}*/}
+        {/*    loader={imageLoader}*/}
+        {/*    priority*/}
+        {/*    height="300px"*/}
+        {/*    width="300px"*/}
+        {/*    objectFit="contain"*/}
+        {/*    src="/static/images/cloud.png"*/}
+        {/*    alt="cloud"*/}
+        {/*  />*/}
+        {/*</div>*/}
       </div>
     </section>
   )
