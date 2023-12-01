@@ -1,7 +1,7 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
   title: "Anh Nguyen's Blog",
-  author: 'Anh Nguyen aka AnhNMT',
+  author: 'Anh Nguyen',
   headerTitle: "Anh Nguyen's Blog",
   description: 'Exploring Tech and more',
   language: 'en-us',
