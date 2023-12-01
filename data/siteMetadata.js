@@ -10,6 +10,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/anhnmt/anhnmt.github.io',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
+  avatar: 'https://avatars.githubusercontent.com/u/42261776',
   // email: 'anhng.dev@gmail.com',
   github: 'https://github.com/anhnmt',
   // twitter: 'https://twitter.com/prabhukirantwt',
