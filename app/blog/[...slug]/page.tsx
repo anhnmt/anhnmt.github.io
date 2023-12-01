@@ -2,15 +2,15 @@ import 'css/prism.css'
 import 'katex/dist/katex.css'
 
 import PageTitle from '@/components/PageTitle'
-import { components } from '@/components/MDXComponents'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent } from 'pliny/utils/contentlayer'
-import { allBlogs, allAuthors } from 'contentlayer/generated'
-import type { Authors, Blog } from 'contentlayer/generated'
+import {components} from '@/components/MDXComponents'
+import {MDXLayoutRenderer} from 'pliny/mdx-components'
+import {coreContent, sortPosts} from 'pliny/utils/contentlayer'
+import type {Authors, Blog} from 'contentlayer/generated'
+import {allAuthors, allBlogs} from 'contentlayer/generated'
 import PostSimple from '@/layouts/PostSimple'
 import PostLayout from '@/layouts/PostLayout'
 import PostBanner from '@/layouts/PostBanner'
-import { Metadata } from 'next'
+import {Metadata} from 'next'
 import siteMetadata from '@/data/siteMetadata'
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -22,8 +22,8 @@ const layouts = {
 }
 
 export async function generateMetadata({
-  params,
-}: {
+                                         params,
+                                       }: {
   params: { slug: string[] }
 }): Promise<Metadata | undefined> {
   const slug = decodeURI(params.slug.join('/'))
@@ -75,12 +75,12 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-  const paths = allBlogs.map((p) => ({ slug: p.slug.split('/') }))
+  const paths = allBlogs.map((p) => ({slug: p.slug.split('/')}))
 
   return paths
 }
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
+export default async function Page({params}: { params: { slug: string[] } }) {
   const slug = decodeURI(params.slug.join('/'))
   const sortedPosts = sortPosts(allBlogs) as Blog[]
   const postIndex = sortedPosts.findIndex((p) => p.slug === slug)
@@ -104,27 +104,27 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
   const Layout = layouts[post.layout || defaultLayout]
 
   return (
-    <>
-      {isProduction && post && 'draft' in post && post.draft === true ? (
-        <div className="mt-24 text-center">
-          <PageTitle>
-            Under Construction{' '}
-            <span role="img" aria-label="roadwork sign">
+      <>
+        {isProduction && post && 'draft' in post && post.draft === true ? (
+            <div className="mt-24 text-center">
+              <PageTitle>
+                Under Construction{' '}
+                <span role="img" aria-label="roadwork sign">
               🚧
             </span>
-          </PageTitle>
-        </div>
-      ) : (
-        <>
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-          />
-          <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-            <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
-          </Layout>
-        </>
-      )}
-    </>
+              </PageTitle>
+            </div>
+        ) : (
+            <>
+              <script
+                  type="application/ld+json"
+                  dangerouslySetInnerHTML={{__html: JSON.stringify(jsonLd)}}
+              />
+              <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
+                <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc}/>
+              </Layout>
+            </>
+        )}
+      </>
   )
 }

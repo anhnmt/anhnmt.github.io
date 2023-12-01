@@ -1,5 +1,5 @@
-import { defineDocumentType, ComputedFields, makeSource } from 'contentlayer/source-files'
-import { writeFileSync } from 'fs'
+import {ComputedFields, defineDocumentType, makeSource} from 'contentlayer/source-files'
+import {writeFileSync} from 'fs'
 import readingTime from 'reading-time'
 import GithubSlugger from 'github-slugger'
 import path from 'path'
@@ -7,10 +7,10 @@ import path from 'path'
 import remarkGfm from 'remark-gfm'
 import remarkMath from 'remark-math'
 import {
-  remarkExtractFrontmatter,
-  remarkCodeTitles,
-  remarkImgToJsx,
   extractTocHeadings,
+  remarkCodeTitles,
+  remarkExtractFrontmatter,
+  remarkImgToJsx,
 } from 'pliny/mdx-plugins/index.js'
 // Rehype packages
 import rehypeSlug from 'rehype-slug'
@@ -20,12 +20,12 @@ import rehypeCitation from 'rehype-citation'
 import rehypePrismPlus from 'rehype-prism-plus'
 import rehypePresetMinify from 'rehype-preset-minify'
 import siteMetadata from './data/siteMetadata'
-import { allCoreContent, sortPosts } from 'pliny/utils/contentlayer.js'
+import {allCoreContent, sortPosts} from 'pliny/utils/contentlayer.js'
 
 const root = process.cwd()
 
 const computedFields: ComputedFields = {
-  readingTime: { type: 'json', resolve: (doc) => readingTime(doc.body.raw) },
+  readingTime: {type: 'json', resolve: (doc) => readingTime(doc.body.raw)},
   slug: {
     type: 'string',
     resolve: (doc) => doc._raw.flattenedPath.replace(/^.+?(\/)/, ''),
@@ -38,7 +38,7 @@ const computedFields: ComputedFields = {
     type: 'string',
     resolve: (doc) => doc._raw.sourceFilePath,
   },
-  toc: { type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw) },
+  toc: {type: 'string', resolve: (doc) => extractTocHeadings(doc.body.raw)},
 }
 
 /**
@@ -63,12 +63,12 @@ function createTagCount(allBlogs) {
 
 function createSearchIndex(allBlogs) {
   if (
-    siteMetadata?.search?.provider === 'kbar' &&
-    siteMetadata.search.kbarConfig.searchDocumentsPath
+      siteMetadata?.search?.provider === 'kbar' &&
+      siteMetadata.search.kbarConfig.searchDocumentsPath
   ) {
     writeFileSync(
-      `public/${siteMetadata.search.kbarConfig.searchDocumentsPath}`,
-      JSON.stringify(allCoreContent(sortPosts(allBlogs)))
+        `public/${siteMetadata.search.kbarConfig.searchDocumentsPath}`,
+        JSON.stringify(allCoreContent(sortPosts(allBlogs)))
     )
     console.log('Local search index generated...')
   }
@@ -79,17 +79,17 @@ export const Blog = defineDocumentType(() => ({
   filePathPattern: 'blog/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    title: { type: 'string', required: true },
-    date: { type: 'date', required: true },
-    tags: { type: 'list', of: { type: 'string' }, default: [] },
-    lastmod: { type: 'date' },
-    draft: { type: 'boolean' },
-    summary: { type: 'string' },
-    images: { type: 'list', of: { type: 'string' } },
-    authors: { type: 'list', of: { type: 'string' } },
-    layout: { type: 'string' },
-    bibliography: { type: 'string' },
-    canonicalUrl: { type: 'string' },
+    title: {type: 'string', required: true},
+    date: {type: 'date', required: true},
+    tags: {type: 'list', of: {type: 'string'}, default: []},
+    lastmod: {type: 'date'},
+    draft: {type: 'boolean'},
+    summary: {type: 'string'},
+    images: {type: 'list', of: {type: 'string'}},
+    authors: {type: 'list', of: {type: 'string'}},
+    layout: {type: 'string'},
+    bibliography: {type: 'string'},
+    canonicalUrl: {type: 'string'},
   },
   computedFields: {
     ...computedFields,
@@ -115,15 +115,15 @@ export const Authors = defineDocumentType(() => ({
   filePathPattern: 'authors/**/*.mdx',
   contentType: 'mdx',
   fields: {
-    name: { type: 'string', required: true },
-    avatar: { type: 'string' },
-    occupation: { type: 'string' },
-    company: { type: 'string' },
-    email: { type: 'string' },
-    twitter: { type: 'string' },
-    linkedin: { type: 'string' },
-    github: { type: 'string' },
-    layout: { type: 'string' },
+    name: {type: 'string', required: true},
+    avatar: {type: 'string'},
+    occupation: {type: 'string'},
+    company: {type: 'string'},
+    email: {type: 'string'},
+    twitter: {type: 'string'},
+    linkedin: {type: 'string'},
+    github: {type: 'string'},
+    layout: {type: 'string'},
   },
   computedFields,
 }))
@@ -144,13 +144,13 @@ export default makeSource({
       rehypeSlug,
       rehypeAutolinkHeadings,
       rehypeKatex,
-      [rehypeCitation, { path: path.join(root, 'data') }],
-      [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
+      [rehypeCitation, {path: path.join(root, 'data')}],
+      [rehypePrismPlus, {defaultLanguage: 'js', ignoreMissing: true}],
       rehypePresetMinify,
     ],
   },
   onSuccess: async (importData) => {
-    const { allBlogs } = await importData()
+    const {allBlogs} = await importData()
     createTagCount(allBlogs)
     createSearchIndex(allBlogs)
   },

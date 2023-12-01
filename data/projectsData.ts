@@ -1,4 +1,5 @@
-import { TechStack } from '@/components/techStack'
+import {TechStack} from '@/components/techStack'
+
 interface ProjectDataProps {
   title: string
   description: string
