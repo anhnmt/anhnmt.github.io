@@ -33,7 +33,7 @@ export default function Home({ posts }) {
           />
         </div>
         <Image
-          src="/static/images/avatar.jpg"
+          src={siteMetadata.avatar}
           alt="avatar"
           width={200}
           height={200}
