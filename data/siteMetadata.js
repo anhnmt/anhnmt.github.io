@@ -11,16 +11,16 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   avatar: 'https://avatars.githubusercontent.com/u/42261776',
-  // email: 'anhng.dev@gmail.com',
+  // email: '',
   github: 'https://github.com/anhnmt',
-  // twitter: 'https://twitter.com/prabhukirantwt',
-  // linkedin: 'https://www.linkedin.com/in/prabhukirankonda',
+  // twitter: '',
+  // linkedin: '',
   locale: 'en-US',
   socialLinks: {
-    github: 'https://www.github.com/prabhukiran8790',
-    // linkedin: 'https://www.linkedin.com/in/prabhukirankonda',
-    // twitter: 'https://twitter.com/prabhukirantwt',
-    // mail: 'mailto:prabhukiran426@gmail.com',
+    github: 'https://github.com/anhnmt',
+    // linkedin: '',
+    // twitter: '',
+    // mail: '',
   },
   analytics: {
     // If you want to use an analytics provider you have to add it to the
