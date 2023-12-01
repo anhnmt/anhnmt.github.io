@@ -35,28 +35,28 @@ const generateRss = (config, posts, page = 'feed.xml') => `
 `
 
 async function generateRSS(config, allBlogs, page = 'feed.xml') {
-	const publishPosts = allBlogs.filter((post) => post.draft !== true)
-	// RSS for blog post
-	if (publishPosts.length > 0) {
-		const rss = generateRss(config, publishPosts)
-		writeFileSync(`./public/${page}`, rss)
-	}
+  const publishPosts = allBlogs.filter((post) => post.draft !== true)
+  // RSS for blog post
+  if (publishPosts.length > 0) {
+    const rss = generateRss(config, publishPosts)
+    writeFileSync(`./public/${page}`, rss)
+  }
 
-	if (publishPosts.length > 0) {
-		for (const tag of Object.keys(tagData)) {
-			const filteredPosts = allBlogs.filter((post) =>
-				post.tags.map((t) => GithubSlugger.slug(t)).includes(tag)
-			)
-			const rss = generateRss(config, filteredPosts, `tags/${tag}/${page}`)
-			const rssPath = path.join('public', 'tags', tag)
-			mkdirSync(rssPath, { recursive: true })
-			writeFileSync(path.join(rssPath, page), rss)
-		}
-	}
+  if (publishPosts.length > 0) {
+    for (const tag of Object.keys(tagData)) {
+      const filteredPosts = allBlogs.filter((post) =>
+        post.tags.map((t) => GithubSlugger.slug(t)).includes(tag)
+      )
+      const rss = generateRss(config, filteredPosts, `tags/${tag}/${page}`)
+      const rssPath = path.join('public', 'tags', tag)
+      mkdirSync(rssPath, { recursive: true })
+      writeFileSync(path.join(rssPath, page), rss)
+    }
+  }
 }
 
 const rss = () => {
-	generateRSS(siteMetadata, allBlogs)
-	console.log('RSS feed generated...')
+  generateRSS(siteMetadata, allBlogs)
+  console.log('RSS feed generated...')
 }
 export default rss

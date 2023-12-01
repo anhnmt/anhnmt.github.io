@@ -5,24 +5,24 @@ import { useTheme } from 'next-themes'
 import { Moon, Sun } from 'lucide-react'
 
 const ThemeSwitch = () => {
-	const [mounted, setMounted] = useState(false)
-	const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  const { theme, setTheme } = useTheme()
 
-	// When mounted on client, now we can show the UI
-	useEffect(() => setMounted(true), [])
+  // When mounted on client, now we can show the UI
+  useEffect(() => setMounted(true), [])
 
-	if (!mounted) {
-		return null
-	}
+  if (!mounted) {
+    return null
+  }
 
-	return (
-		<button
-			aria-label="Toggle Dark Mode"
-			onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-		>
-			{mounted && theme === 'dark' ? <Sun /> : <Moon />}
-		</button>
-	)
+  return (
+    <button
+      aria-label="Toggle Dark Mode"
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+    >
+      {mounted && theme === 'dark' ? <Sun /> : <Moon />}
+    </button>
+  )
 }
 
 export default ThemeSwitch
