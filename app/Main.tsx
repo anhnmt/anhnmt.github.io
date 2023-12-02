@@ -16,12 +16,6 @@ export default function Home({ posts }) {
             <span className="text-sky-500 dark:text-teal-400">{siteMetadata.author}</span>
           </h1>
           <p>Welcome to my blog - here I share everything that I love.</p>
-          <Link
-            href="/about"
-            className="bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-2 px-4 rounded mt-4 inline-block"
-          >
-            About Me
-          </Link>
         </div>
         <div className="rounded-full md:hidden shadow-lg ">
           <Image
@@ -43,11 +37,8 @@ export default function Home({ posts }) {
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
         <div className="space-y-0 mt-3 md:mt-0 pb-2 pt-6 md:space-y-5">
           <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            Mới nhất
+            Bài viết gần đây
           </h1>
-          <p className="text-lg leading-7 text-gray-500 dark:text-gray-400">
-            Khám phá các bài viết mới nhất.
-          </p>
         </div>
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
@@ -84,15 +75,6 @@ export default function Home({ posts }) {
                           {summary}
                         </div>
                       </div>
-                      <div className="text-base font-medium leading-6">
-                        <Link
-                          href={`/blog/${slug}`}
-                          className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                          aria-label={`Read "${title}"`}
-                        >
-                          Read more &rarr;
-                        </Link>
-                      </div>
                     </div>
                   </div>
                 </article>
@@ -108,7 +90,7 @@ export default function Home({ posts }) {
             className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
             aria-label="All posts"
           >
-            All Posts &rarr;
+            Đọc hết &rarr;
           </Link>
         </div>
       )}
