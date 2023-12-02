@@ -1,5 +1,5 @@
 // @ts-check
-const {fontFamily} = require('tailwindcss/defaultTheme')
+const { fontFamily } = require('tailwindcss/defaultTheme')
 const colors = require('tailwindcss/colors')
 
 /** @type {import("tailwindcss/types").Config } */
@@ -32,20 +32,20 @@ module.exports = {
       },
       keyframes: {
         wave: {
-          '0%': {transform: 'rotate(0.0deg)'},
-          '15%': {transform: 'rotate(14.0deg)'},
-          '30%': {transform: 'rotate(-8.0deg)'},
-          '40%': {transform: 'rotate(14.0deg)'},
-          '50%': {transform: 'rotate(-4.0deg)'},
-          '60%': {transform: 'rotate(10.0deg)'},
-          '70%': {transform: 'rotate(0.0deg)'},
-          '100%': {transform: 'rotate(0.0deg)'},
+          '0%': { transform: 'rotate(0.0deg)' },
+          '15%': { transform: 'rotate(14.0deg)' },
+          '30%': { transform: 'rotate(-8.0deg)' },
+          '40%': { transform: 'rotate(14.0deg)' },
+          '50%': { transform: 'rotate(-4.0deg)' },
+          '60%': { transform: 'rotate(10.0deg)' },
+          '70%': { transform: 'rotate(0.0deg)' },
+          '100%': { transform: 'rotate(0.0deg)' },
         },
       },
       animation: {
         wave: 'wave 1.5s infinite',
       },
-      typography: ({theme}) => ({
+      typography: ({ theme }) => ({
         DEFAULT: {
           css: {
             a: {
@@ -56,7 +56,7 @@ module.exports = {
                 textDecoration: 'underline',
                 textUnderlineOffset: '5px',
               },
-              code: {color: theme('colors.primary.400')},
+              code: { color: theme('colors.primary.400') },
             },
             'h1,h2': {
               fontWeight: '700',
@@ -98,7 +98,7 @@ module.exports = {
               '&:hover': {
                 color: `${theme('colors.green.400')}`,
               },
-              code: {color: theme('colors.primary.400')},
+              code: { color: theme('colors.primary.400') },
             },
             'h1,h2,h3,h4,h5,h6': {
               color: theme('colors.gray.100'),
