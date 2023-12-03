@@ -16,6 +16,13 @@ const projectsData: ProjectDataProps[] = [
     href: 'https://huggingface.co/spaces/PrabhuKiranKonda/fastapi_mongoDB',
     techStack: ['Docker'],
   },
+  {
+    title: 'College Student API: FastAPI with MongoDB',
+    description: `Developed a high-performance API using FastAPI and MongoDB Cloud Database for managing college student information. It includes CRUD operations and secure data handling. The API is deployed with Docker for easy setup and scalability.`,
+    imgSrc: '/static/images/FastAPI_MongDB.png',
+    href: 'https://huggingface.co/spaces/PrabhuKiranKonda/fastapi_mongoDB',
+    techStack: ['Docker'],
+  },
 ]
 
 export default projectsData
