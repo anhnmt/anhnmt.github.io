@@ -62,17 +62,14 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                         <dl className="whitespace-nowrap text-base font-medium leading-5">
                           <dt className="sr-only">Name</dt>
                           <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                          <dt className="sr-only">Linkedin</dt>
+                          <dt className="sr-only">GitHub</dt>
                           <dd>
-                            {author.linkedin && (
+                            {author.github && (
                               <Link
-                                href={author.linkedin}
+                                href={author.github}
                                 className="text-primary-500 dark:text-green-400 font-bold hover:text-primary-600 dark:hover:text-green-500"
                               >
-                                {author.linkedin.replace(
-                                  'https://www.linkedin.com/in/',
-                                  'linkedin/'
-                                )}
+                                {author.github.replace('https://github.com/', '')}
                               </Link>
                             )}
                           </dd>
