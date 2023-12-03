@@ -77,9 +77,9 @@ export default function PostLayout({ content, authorDetails, next, prev, childre
                           {author.github && (
                             <Link
                               href={author.github}
-                              className="text-primary-500 dark:text-green-400 font-bold hover:text-primary-600 dark:hover:text-green-500"
+                              className="text-primary-500 dark:text-blue-400 font-bold hover:text-primary-600 dark:hover:text-green-500"
                             >
-                              {author.github.replace('https://github.com/', '')}
+                              @{author.github.replace('https://github.com/', '')}
                             </Link>
                           )}
                         </dd>
