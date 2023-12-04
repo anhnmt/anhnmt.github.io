@@ -1,0 +1,227 @@
+---
+title: Cách khắc phục khi ổ đĩa bị đầy trong quá trình sử dụng Docker?
+summary: "Trong quá trình sử dụng Docker lâu dài, bạn có thể sẽ gặp nhiều tình huống khiến ổ đĩa bị đầy khi sử dụng. Hãy theo dõi bài viết để biết cách khắc phục vấn đề này cùng mình nhé ^^"
+date: '2023-12-04'
+draft: false
+tags: ['DevOps', 'Docker', 'Container', 'Logs']
+authors: ['anhnmt']
+layout: PostLayout
+---
+
+<TOCInline toc={props.toc} asDisclosure />
+
+Nếu bạn thường xuyên build image bằng Docker, thì chắc các bạn cũng để ý khi build lại thì lần sau thường sẽ nhanh hơn phần trước. Nhanh như vậy đó là do Docker đã cache lại để quá trình build image của chúng ta được nhanh hơn.
+Tất nhiên cái gì cũng có cái giá của nó ^^. Mình cũng đã từng gặp trường hợp như vậy khi triển khai dự án ở công ty, mình dựng 1 server GitHub Action self-hosted để chạy CI (Continuous Innovation) build image mới nhất từ Repo mỗi khi đẩy code vào nhánh `prod`, `staging` hoặc `dev`.
+
+Quá trình này hoạt động cũng được gọi là ổn định cho đến khi 1 vấn đề xảy ra 😒
+
+```bash
+Error: no space left on device
+```
+
+Lối bên trên chỉ mang tính chất minh hoạ, nhưng đại loại là lỗi trả về có dạng `no space left on device`.
+Ngay lập tức mình kết nối vào server để xem tình hình ra sao. Sau đó chạy lệnh `df` để kiểm tra disk còn bao nhiêu % ổ đĩa trống.
+
+```bash
+ubuntu@builder:~$ df -h
+Filesystem      Size  Used Avail Use% Mounted on
+tmpfs           791M  3.3M  787M   1% /run
+/dev/sda2        98G   98G   0     99% /
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           5.0M     0  5.0M   0% /run/lock
+tmpfs           791M  4.0K  791M   1% /run/user/1000
+ubuntu@builder:~$     
+```
+
+(Kết quả đã được mình chế cháo lại 😁, nhưng đại loại là sẽ có dạng như vậy)
+Nhìn kết quả bên trên chắc các bạn cũng sẽ thấy `/dev/sda2` đang đầy 99%. khi đầy thì cột `Used` sẽ cao, `Avail` sẽ thấp và cột `Use%` sẽ hiển thị % sử dụng ổ đĩa
+
+Tiếp tục kiểm tra kích thước của từng thư mục từ thư mục root
+
+```bash
+ubuntu@builder:~$ sudo du -h --max-depth 1 /
+```
+
+Thấy thư mục `/var` lớn nhất, check tiếp bên trong thư mục đó.
+
+```bash
+ubuntu@builder:~$ sudo du -h --max-depth 1 /var
+```
+
+Tiếp tục với thư mục `/var/lib` thì tôi tìm ra thư mục `/var/lib/docker` nặng nhất, cụ thể lúc đấy khoảng 80GB.
+
+```bash
+ubuntu@builder:~$ sudo du -h --max-depth 1 /var/lib/docker
+4.0K	/var/lib/docker/runtimes
+40G   /var/lib/docker/overlay2
+148K	/var/lib/docker/volumes
+4.9M	/var/lib/docker/containers
+4.0K	/var/lib/docker/tmp
+4.0K	/var/lib/docker/swarm
+152K	/var/lib/docker/network
+56M	  /var/lib/docker/image
+39M	  /var/lib/docker/buildkit
+16K	  /var/lib/docker/plugins
+40G	  /var/lib/docker
+```
+
+Ok vậy đã tìm được nguyên nhân là do docker, bước tiếp theo là xem cái gì dọn dẹp đươc thì dọn dẹp. Các thứ mình nghĩ có thể dọn dẹp được bao gồm:
+- Log của các container
+- Các volume không còn được sử dụng
+- Các container đã stopped
+- Các image mà không được sử dụng
+- Build cache
+
+Tìm được các thứ cần dọn dẹp rồi thì chúng ta bắt đầu dọn dẹp thôi.
+
+## Xoá các `volume` không sử dụng nữa
+
+Câu lệnh dọn dẹp các `volume` mà không được sử dụng nữa.
+```
+docker volume prune -a -f
+```
+
+## Xoá các `image` không sử dụng nữa
+
+Câu lệnh dọn dẹp các `image` mà không được sử dụng nữa.
+```
+docker image prune -a -f
+```
+
+## Xoá các `container` không sử dụng nữa
+
+Câu lệnh dọn dẹp các `container` mà không được sử dụng nữa.
+```
+docker container prune -a -f
+```
+
+## Xoá các `builder` không sử dụng nữa
+
+Câu lệnh dọn dẹp các `builder` mà không được sử dụng nữa.
+(Server builder của mình nặng nhất phần này, vì phải build image liên tục dẫn tới cache làm đầy ổ cứng)
+
+```
+docker builder prune -a -f
+```
+
+## Câu lệnh giúp dọn dẹp nhanh chóng `system prune`
+
+Phiên bản sau này của docker có lệnh `docker system prune` sẽ tự động làm kha khá các việc dọn dẹp cho chúng ta.
+
+```
+ubuntu@builder:~$ docker system prune
+WARNING! This will remove:
+  - all stopped containers
+  - all networks not used by at least one container
+  - all dangling images
+  - all dangling build cache
+
+Are you sure you want to continue? [y/N] y
+Deleted Networks:
+docker-network_default
+Deleted build cache objects:
+98jlfzkgw1hjfdk22sd5460x5
+3o8xbgqhl6e49n3illj8fenid
+o692cdjs4pm8ni4l4rg8v4hpw
+pobyjug26w7kddhf68st2sj5t
+p3imtyiehrh0pqfptsyfyftaj
+...
+Total reclaimed space: 80.17GB
+```
+
+Hoặc chạy lệnh xoá tất cả
+
+```
+docker system prune -a -f
+```
+
+## Xoá các container logs
+
+Thứ chiếm dung lượng ổ đĩa tiếp theo là Docker Json Logs, mặc định khi cài Docker thì toàn bộ logs của container sẽ được Docker lưu ở thư mục /var/lib/docker/containers/* ở dạng json, nếu ta không thường xuyên xóa logs ở thư mục này thì nó sẽ lên tới vài chục hoặc vài trăm GB.
+
+Để xóa logs ở thư mục này ta có vài cách sau:
+- Cấu hình crontab
+- Dùng logrotate
+- Giới hạn dung lượng logs của container
+
+Dọn dẹp log của container, đơn giản là làm nó trống trơn. (Sử dụng quyền `root` nếu bị lỗi `Permission denied`)
+
+### Xóa thủ công với crontab
+
+```
+for f in /var/lib/docker/containers/*/*-json.log
+do
+  cat /dev/null > \$f
+done
+```
+
+Cấu hình crontab:
+
+```
+# daily
+sudo -s
+
+cat <<EOF > /etc/cron.daily/clear-container-logs
+#!/bin/sh
+for f in /var/lib/docker/containers/*/*-json.log
+do
+  cat /dev/null > \$f
+done
+EOF
+
+chmod +x /etc/cron.daily/clear-container-logs
+```
+
+### Tự động với logrotate
+
+Nếu bạn muốn giữ lại logs thì có thể dùng `logrotate` để tự động giảm dung lượng logs của Docker.
+
+Hầu hết các Linux Distro đều cài sẵn `logrotate`, cấu hình logrotate cho tệp tin logs của Docker rất đơn giản, ta tạo tệp tin `logrotate-container` ở thư mục `/etc/logrotate.d` và dán cấu hình ở dưới vào:
+
+```
+/var/lib/docker/containers/*/*.log {
+  rotate 7
+  daily
+  compress
+  missingok
+  delaycompress
+  copytruncate
+}
+```
+
+Chạy thử:
+
+```
+logrotate -fv /etc/logrotate.d/logrotate-container
+```
+
+Măc định logrotate có sẵn crontab nằm ở thư mục `/etc/cron.daily` để chạy logrotate hằng ngày nên ta không cần phải cấu hình crontab thêm.
+
+### Giới hạn dung lượng logs của container
+
+Từ phiên bản 1.8 trở đi thì Docker có sẵn chức năng logrotate cho json logs. Khi chạy container ta thêm vào thuộc tính `--log-opt` vào để giới hạn dung lượng logs của container.
+
+```
+docker run --log-driver json-file --log-opt max-size=10m nginx
+```
+
+Nếu ta cần cấu hình cho toàn bộ container thì thêm cấu hình sau vào daemon.json, nằm ở thư mục `/etc/docker/` trên Linux và ở thư mục `C:\ProgramData\docker\config\` trên Windows.
+
+```json:daemon.json
+{
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  }
+}
+```
+
+## Kết luận
+
+Trên đây là 1 số cách để tránh và khắc phục khi ổ đĩa bị đầy trong quá trình học tập và sử dụng Docker. Cách khắc phục tuy đơn giản nhưng vấn đề này rất quan trọng nên các bạn hãy cẩn thận chọn cách phù hợp để cấu hình cho máy chủ của mình nhé ^^.
+
+## Nội dung tham khảo
+- Quân Huỳnh - [Làm thế nào để tránh ổ đĩa bị đầy khi xài Docker?](https://devopsvn.tech/devops/lam-the-nao-de-tranh-o-dia-bi-day-khi-xai-docker)
+- Nguyen Minh Tuan - [Hết dung lượng disk do chạy Docker trong thời gian dài](https://viblo.asia/p/het-dung-luong-disk-do-chay-docker-trong-thoi-gian-dai-oK9Vyze94QR)
+- [Docker: How to clear the logs properly for a Docker container?](https://stackoverflow.com/questions/42510002/docker-how-to-clear-the-logs-properly-for-a-docker-container)
