@@ -10,7 +10,7 @@ const siteMetadata = {
   siteRepo: 'https://github.com/anhnmt/anhnmt.github.io',
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
-  avatar: 'https://avatars.githubusercontent.com/u/42261776',
+  avatar: 'https://github.com/anhnmt.png?size=200',
   // email: '',
   github: 'https://github.com/anhnmt',
   // twitter: '',
