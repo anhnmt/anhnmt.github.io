@@ -77,21 +77,21 @@ Tìm được các thứ cần dọn dẹp rồi thì chúng ta bắt đầu d�
 ## Xoá các `volume` không sử dụng nữa
 
 Câu lệnh dọn dẹp các `volume` mà không được sử dụng nữa.
-```
+```bash
 docker volume prune -a -f
 ```
 
 ## Xoá các `image` không sử dụng nữa
 
 Câu lệnh dọn dẹp các `image` mà không được sử dụng nữa.
-```
+```bash
 docker image prune -a -f
 ```
 
 ## Xoá các `container` không sử dụng nữa
 
 Câu lệnh dọn dẹp các `container` mà không được sử dụng nữa.
-```
+```bash
 docker container prune -a -f
 ```
 
@@ -100,7 +100,7 @@ docker container prune -a -f
 Câu lệnh dọn dẹp các `builder` mà không được sử dụng nữa.
 (Server builder của mình nặng nhất phần này, vì phải build image liên tục dẫn tới cache làm đầy ổ cứng)
 
-```
+```bash
 docker builder prune -a -f
 ```
 
@@ -108,7 +108,7 @@ docker builder prune -a -f
 
 Phiên bản sau này của docker có lệnh `docker system prune` sẽ tự động làm kha khá các việc dọn dẹp cho chúng ta.
 
-```
+```bash
 ubuntu@builder:~$ docker system prune
 WARNING! This will remove:
   - all stopped containers
@@ -131,7 +131,7 @@ Total reclaimed space: 80.17GB
 
 Hoặc chạy lệnh xoá tất cả
 
-```
+```bash
 docker system prune -a -f
 ```
 
@@ -178,7 +178,7 @@ Nếu bạn muốn giữ lại logs thì có thể dùng `logrotate` để tự 
 
 Hầu hết các Linux Distro đều cài sẵn `logrotate`, cấu hình logrotate cho tệp tin logs của Docker rất đơn giản, ta tạo tệp tin `logrotate-container` ở thư mục `/etc/logrotate.d` và dán cấu hình ở dưới vào:
 
-```
+```bash:logrotate-container
 /var/lib/docker/containers/*/*.log {
   rotate 7
   daily
@@ -191,7 +191,7 @@ Hầu hết các Linux Distro đều cài sẵn `logrotate`, cấu hình logrota
 
 Chạy thử:
 
-```
+```bash
 logrotate -fv /etc/logrotate.d/logrotate-container
 ```
 
@@ -201,7 +201,7 @@ Măc định logrotate có sẵn crontab nằm ở thư mục `/etc/cron.daily` 
 
 Từ phiên bản 1.8 trở đi thì Docker có sẵn chức năng logrotate cho json logs. Khi chạy container ta thêm vào thuộc tính `--log-opt` vào để giới hạn dung lượng logs của container.
 
-```
+```bash
 docker run --log-driver json-file --log-opt max-size=10m nginx
 ```
 
