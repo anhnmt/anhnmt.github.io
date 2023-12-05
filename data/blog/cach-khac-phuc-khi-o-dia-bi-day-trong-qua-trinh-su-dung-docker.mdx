@@ -148,7 +148,7 @@ Dọn dẹp log của container, đơn giản là làm nó trống trơn. (Sử 
 
 ### Xóa thủ công với crontab
 
-```
+```bash
 for f in /var/lib/docker/containers/*/*-json.log
 do
   cat /dev/null > \$f
@@ -157,7 +157,7 @@ done
 
 Cấu hình crontab:
 
-```
+```bash
 # daily
 sudo -s
 
