@@ -39,7 +39,7 @@ async function generateRSS(config, allBlogs, page = 'feed.xml') {
   // RSS for blog post
   if (publishPosts.length > 0) {
     const rss = generateRss(config, publishPosts)
-    writeFileSync(`./public/${page}`, rss)
+    writeFileSync(`./out/${page}`, rss)
   }
 
   if (publishPosts.length > 0) {
@@ -48,7 +48,7 @@ async function generateRSS(config, allBlogs, page = 'feed.xml') {
         post.tags.map((t) => GithubSlugger.slug(t)).includes(tag)
       )
       const rss = generateRss(config, filteredPosts, `tags/${tag}/${page}`)
-      const rssPath = path.join('public', 'tags', tag)
+      const rssPath = path.join('out', 'tags', tag)
       mkdirSync(rssPath, { recursive: true })
       writeFileSync(path.join(rssPath, page), rss)
     }
