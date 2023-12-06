@@ -4,7 +4,9 @@ const siteMetadata = {
   author: 'Anh Nguyen',
   headerTitle: "Anh Nguyen's Blog",
   description: 'Exploring Tech and more',
-  language: 'en-us',
+  language: 'vi-vn',
+  // locale: 'en-US',
+  locale: 'vi-VN',
   theme: 'dark', // system, dark or light
   siteUrl: 'https://anhnmt.dev',
   siteRepo: 'https://github.com/anhnmt/anhnmt.github.io',
@@ -15,8 +17,6 @@ const siteMetadata = {
   github: 'https://github.com/anhnmt',
   // twitter: '',
   // linkedin: '',
-  // locale: 'en-US',
-  locale: 'vi-VN',
   socialLinks: {
     github: 'https://github.com/anhnmt',
     // linkedin: '',
