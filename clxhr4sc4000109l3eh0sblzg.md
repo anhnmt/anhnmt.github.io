@@ -8,6 +8,8 @@ tags: kubernetes, devops, cheatsheet, k8s
 
 ---
 
+Bài viết được mình sưu tầm với mục đích chia sẻ kiến thức cho mọi người, và không nhằm mục đích thương mại. Vì bài viết có nhiều từ tiếng anh chuyên môn nên mình sẽ để nguyên văn của tác giả để mọi người có thể hiểu dễ hơn.
+
 ## Cluster Management
 
 1. Display endpoint details for the cluster’s master and services.
@@ -235,6 +237,7 @@ kubectl get pods -o wide
 kubectl apply -f <xyz.yaml>
 ```
 
-## Sources
+## Nội dung tham khảo
+Nội dung bài viết này được mình tìm hiểu, tham khảo, đúc kết và tổng hợp lại từ nhiều nguồn. Mọi người có thể xem thêm các bài viết sau: 
 
 * K21Academy - KUBERNETES CHEATSHEET
