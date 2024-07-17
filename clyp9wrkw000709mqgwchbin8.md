@@ -51,3 +51,5 @@ Nội dung bài viết này được mình tìm hiểu, dịch, tham khảo, đ�
 * Prof. C Murwamuila - [8 Essential Load Balancing Algorithms](https://www.linkedin.com/posts/activity-7217476622843559937-MZ3n)
     
 * [Design Gurus](https://www.designgurus.io/)
+    
+* [The Essential Guide to Load Balancing Strategies and Techniques | by Hayk Simonyan | Level Up Coding (gitconnected.com)](https://levelup.gitconnected.com/the-essential-guide-to-load-balancing-strategies-and-techniques-cb17f0d219ee)
