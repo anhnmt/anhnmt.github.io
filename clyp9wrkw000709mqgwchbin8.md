@@ -3,7 +3,7 @@ title: "8 Thuật toán cân bằng tải mà bạn cần phải biết"
 datePublished: Wed Jul 17 2024 03:19:05 GMT+0000 (Coordinated Universal Time)
 cuid: clyp9wrkw000709mqgwchbin8
 slug: 8-thuat-toan-can-bang-tai-ma-ban-can-phai-biet
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1721186461419/c372566b-b328-40ec-bf1b-a6448d5f5a36.gif
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1721186899412/c7ab1663-f7c5-4b47-8503-374db8a4f7ad.png
 tags: algorithms, load-balancing, lb
 
 ---
