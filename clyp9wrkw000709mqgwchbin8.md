@@ -14,11 +14,11 @@ Cân bằng tải là người hùng thầm lặng của các ứng dụng web h
 
 ## 1\. Round Robin
 
-Phân phối các yêu cầu một cách tuần tự trên một danh sách các máy chủ, giống như thay phiên nhau.
+`Round Robin` là hình thức cân bằng tải đơn giản nhất, thường được cài đặt mặc định trong 1 số `load balancer`, trong đó mỗi máy chủ trong nhóm nhận được yêu cầu theo thứ tự luân phiên, tuần tự. Khi đến máy chủ cuối cùng, nó sẽ lặp lại máy chủ đầu tiên.
 
 ## 2\. Least Connections
 
-Chuyển yêu cầu đến máy chủ có ít kết nối hoạt động nhất.
+Hướng lưu lượng truy cập đến máy chủ có `ít kết nối hoạt động nhất`. Điều này đặc biệt hữu ích khi có các phiên có độ dài và nhu cầu khác nhau.
 
 ## 3\. Weighted Round Robin
 
