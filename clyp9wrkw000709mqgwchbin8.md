@@ -3,12 +3,14 @@ title: "8 Thuật toán cân bằng tải mà bạn cần phải biết"
 datePublished: Wed Jul 17 2024 03:19:05 GMT+0000 (Coordinated Universal Time)
 cuid: clyp9wrkw000709mqgwchbin8
 slug: 8-thuat-toan-can-bang-tai-ma-ban-can-phai-biet
-cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1721186899412/c7ab1663-f7c5-4b47-8503-374db8a4f7ad.png
+cover: https://cdn.hashnode.com/res/hashnode/image/upload/v1721187289798/d7831b10-8cf1-4d98-8474-69ce688304af.webp
 tags: algorithms, load-balancing, lb
 
 ---
 
 Cân bằng tải là người hùng thầm lặng của các ứng dụng web hiệu suất cao. Để có thể tăng tối đa khả năng sử dụng, bạn cần phải biết về các thuật toán của chúng. Hãy theo dõi bài viết để xem đó là gì nhé.
+
+![](https://miro.medium.com/v2/resize:fit:1600/1*4mfImsqd1ruOQT-JjV9d1Q.png align="center")
 
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1721186123277/0366cafe-ac39-424f-b674-c15141a0901c.gif align="center")
 
