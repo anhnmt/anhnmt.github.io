@@ -10,8 +10,6 @@ tags: algorithms, load-balancing, lb
 
 Cân bằng tải là người hùng thầm lặng của các ứng dụng web hiệu suất cao. Để có thể tăng tối đa khả năng sử dụng, bạn cần phải biết về các thuật toán của chúng. Hãy theo dõi bài viết để xem đó là gì nhé.
 
-![](https://miro.medium.com/v2/resize:fit:1600/1*4mfImsqd1ruOQT-JjV9d1Q.png align="center")
-
 ![](https://cdn.hashnode.com/res/hashnode/image/upload/v1721186123277/0366cafe-ac39-424f-b674-c15141a0901c.gif align="center")
 
 ## 1\. Round Robin
